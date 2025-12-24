@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.mypy_cache/
+.pytest_cache/
+.coverage*
+htmlcov/
+
+# Environments
+.env
+.env.*
+*.env
+.venv/
+venv/
+ENV/
+
+# OS/Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.code-workspace
+
+# Builds/Dist
+build/
+dist/
+site/
+*.log
+
+# SQLite/Local DB files (if any leftover)
+*.db
+*.sqlite
+*.sqlite3
+
+# Caches
+.cache/
+
+# Uvicorn/Run artifacts
+*.pid
+
+# Pyright/Pylance
+pyrightconfig.json
