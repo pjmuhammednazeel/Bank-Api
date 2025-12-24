@@ -29,3 +29,21 @@ uvicorn backend.main:app --reload
 ## Notes
 - The field `address` was replaced with `mobile_phone` across models and schemas.
 - Tables are created on startup via `models.Base.metadata.create_all(bind=engine)`.
+
+## Frontend (HTML/CSS/JS)
+- Files are in `frontend/` (no framework required).
+- Ensure the API is running on `http://localhost:8000`.
+
+Open the page in a simple static server (recommended):
+
+```powershell
+# From repo root
+python -m http.server 5500 -d frontend
+# Then open http://localhost:5500
+```
+
+Or open `frontend/index.html` directly in the browser; CORS is enabled.
+
+The UI allows you to:
+- Create an account (account number, name, mobile phone, balance)
+- List accounts

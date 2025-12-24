@@ -1,0 +1,67 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bank Accounts</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <div class="logo-section">
+          <div class="sbi-logo">
+            <svg width="60" height="60" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#00BCD4"/><path d="M50 30 L50 70 M35 50 L50 70" stroke="white" stroke-width="8" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h1>SBI Bank</h1>
+            <p>State Bank of India</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="card">
+        <div class="row">
+          <label for="base_url">API Base URL</label>
+          <input id="base_url" value="http://localhost:8000" />
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Create Account</h2>
+        <form id="create-form">
+          <div class="row"><label for="account_number">Account Number</label><input id="account_number" placeholder="ACC-0001" required /></div>
+          <div class="row"><label for="name">Name</label><input id="name" placeholder="Alice Johnson" required /></div>
+          <div class="row"><label for="mobile_phone">Mobile Phone</label><input id="mobile_phone" placeholder="+15551234567" required /></div>
+          <div class="row"><label for="balance">Starting Balance</label><input id="balance" type="number" step="0.01" placeholder="100.00" required /></div>
+          <div class="actions"><button type="submit">Create Account</button><span id="create-status" aria-live="polite"></span></div>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="list-header"><h2>Accounts</h2><button id="refresh">Refresh</button></div>
+        <div class="table-wrap"><table><thead><tr><th>ID</th><th>Account #</th><th>Name</th><th>Mobile</th><th>Balance</th><th>Created</th><th>Action</th></tr></thead><tbody id="rows"><tr><td colspan="7">Loading...</td></tr></tbody></table></div>
+      </section>
+
+      <section class="card">
+        <h2>Balance Operations</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+          <div><h3>Deposit</h3><form id="deposit-form"><div class="row"><label>Account ID</label><input id="deposit_account_id" type="number" required /></div><div class="row"><label>Amount</label><input id="deposit_amount" type="number" step="0.01" required /></div><button type="submit">Deposit</button><span id="deposit-status" style="display:block;margin-top:6px" aria-live="polite"></span></form></div>
+          <div><h3>Withdraw</h3><form id="withdraw-form"><div class="row"><label>Account ID</label><input id="withdraw_account_id" type="number" required /></div><div class="row"><label>Amount</label><input id="withdraw_amount" type="number" step="0.01" required /></div><button type="submit">Withdraw</button><span id="withdraw-status" style="display:block;margin-top:6px" aria-live="polite"></span></form></div>
+          <div><h3>Transfer</h3><form id="transfer-form"><div class="row"><label>From ID</label><input id="from_account_id" type="number" required /></div><div class="row"><label>To ID</label><input id="to_account_id" type="number" required /></div><div class="row"><label>Amount</label><input id="transfer_amount" type="number" step="0.01" required /></div><button type="submit">Transfer</button><span id="transfer-status" style="display:block;margin-top:6px" aria-live="polite"></span></form></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Transaction History</h2>
+        <div class="row"><label>Account ID</label><input id="txn_account_id" type="number" /><button id="load-txns">Load</button></div>
+        <div class="table-wrap"><table><thead><tr><th>ID</th><th>Type</th><th>Amount</th><th>Before</th><th>After</th><th>Description</th><th>Time</th></tr></thead><tbody id="txn-rows"><tr><td colspan="7">Select account</td></tr></tbody></table></div>
+      </section>
+    </main>
+
+    <footer><small>© 2025 SBI Bank - Banking Operations Portal</small></footer>
+    <script src="app.js"></script>
+  </body>
+</html>
